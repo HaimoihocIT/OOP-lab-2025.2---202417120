@@ -1,33 +1,16 @@
 package hust.soict.globalict.aims.store;
 
-import hust.soict.globalict.aims.media.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.Media;
+import java.util.ArrayList;
 
 public class Store {
-    private DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[100];
-    private int qtyInStore = 0;
+    private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 
-    public void addDVD(DigitalVideoDisc dvd) {
-        if (qtyInStore < itemsInStore.length) {
-            itemsInStore[qtyInStore] = dvd;
-            qtyInStore++;
-            System.out.println("DVD" + dvd.getTitle() + "added to store.");
-        } else {
-            System.out.println("Store is full.");
-        }
+    public void addMedia(Media media) {
+        if (!itemsInStore.contains(media)) itemsInStore.add(media);
     }
 
-    public void removeDVD(DigitalVideoDisc dvd) {
-        for (int i = 0; i < qtyInStore; i++) {
-            if (itemsInStore[i] == dvd) {
-                for (int j = i; j < qtyInStore - 1; j++) {
-                    itemsInStore[j] = itemsInStore[j + 1];
-                }
-                itemsInStore[qtyInStore - 1] = null;
-                qtyInStore--;
-                System.out.println("DVD" + dvd.getTitle() + "removed from store.");
-                return;
-            }
-        }
-        System.out.println("DVD not found in store.");
+    public void removeMedia(Media media) {
+        itemsInStore.remove(media);
     }
 }
