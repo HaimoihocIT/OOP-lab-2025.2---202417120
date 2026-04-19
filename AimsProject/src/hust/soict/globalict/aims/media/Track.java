@@ -15,4 +15,12 @@ public class Track {
         System.out.println("Playing track: " + this.getTitle());
         System.out.println("Track length: " + this.getLength());
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || !(obj instanceof Track)) return false;
+        Track other = (Track) obj;
+        return this.title != null && this.title.equals(other.title) && this.length == other.length;
+    }
 }
