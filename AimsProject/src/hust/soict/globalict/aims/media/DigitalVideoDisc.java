@@ -37,4 +37,9 @@ public class DigitalVideoDisc extends Disc {
         nbDigitalVideoDiscs++;
         this.setId(nbDigitalVideoDiscs);
     }
+
+    public void play() {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
+    }
 }

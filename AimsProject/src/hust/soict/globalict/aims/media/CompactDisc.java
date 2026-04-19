@@ -28,4 +28,12 @@ public class CompactDisc extends Disc {
         for (Track track : tracks) total += track.getLength();
         return total;
     }
+
+    public void play() {
+        System.out.println("Playing CD: " + this.getTitle() + " by " + this.artist);
+        System.out.println("CD Total length: " + this.getLength());
+        for (Track track : tracks) {
+            track.play();
+        }
+    }
 }
